@@ -16,6 +16,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 vim.lsp.enable('rust_analyzer')
 vim.lsp.enable('lua_ls')
+vim.lsp.enable('jdtls')
 
 require("vim-options")
 require("lazy").setup("plugins")

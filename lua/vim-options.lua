@@ -9,3 +9,5 @@ vim.opt.shiftwidth = 0
 
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+
+vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = 'Code action' })
