@@ -1,2 +1,4 @@
 .git/
+.gitignore
+.luarc.json
 lazy-lock.json
