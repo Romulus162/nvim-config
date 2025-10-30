@@ -17,6 +17,7 @@ return {
 	build = ":TSUpdate",
 	config = function()
 		require("nvim-treesitter.configs").setup({
+			ensure_installed = { 'java', 'lua' }, --redundancy
 			auto_install = { enable = true },
 			-- apparently this is working, but I can't tell the difference, it very well could be because of my current theme
 			-- yeah its like 100% I can't tell highlight is working because theme, whatever.
