@@ -19,4 +19,11 @@ require("vim-options")
 require("lazy").setup("plugins")
 --FUTURE POTENTIAL PLUGINS
     --UndotreeToggle
-    --vim-fugitive
+   --vim-fugitive
+
+vim.cmd [[
+  highlight Normal guibg=none
+  highlight NonText guibg=none
+  highlight Normal ctermbg=none
+  highlight NonText ctermbg=none
+  ]]
