@@ -10,15 +10,15 @@ return {
 			sources = {
 				null_ls.builtins.formatting.stylua,
 				null_ls.builtins.formatting.prettier.with({
-					filetypes = { "html", "css" }
+					filetypes = { "html", "css" },
 				}),
 				null_ls.builtins.formatting.google_java_format,
 				null_ls.builtins.diagnostics.checkstyle.with({
 					extra_args = { "-c", "/google_checks.xml" },
 				}),
-				eslint_d.with({
-					filetypes = { "html" },
-				})
+				eslint_d.with({ filetypes = { "html" } }),
+				null_ls.builtins.formatting.black,
+				null_ls.builtins.diagnostics.pylint,
 			},
 		})
 
