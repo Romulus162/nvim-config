@@ -39,11 +39,15 @@ return {
 			vim.lsp.config("cssls", {
 				capabilities = capabilities,
 			})
+			vim.lsp.config("pyright", {
+				capabilities = capabilities,
+			})
 
 			vim.lsp.enable("html")
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("jdtls")
+			vim.lsp.enable("pyright")
 		end,
 	},
 }
