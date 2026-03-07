@@ -14,6 +14,7 @@ return {
 				"cssls",
 				"rust_analyzer", -- Rust
 				"jdtls", --Java (you have to be carefule, there is a java_language_server LSP also. This one is the official one)
+				"qmlls"
 			},
 		},
 	},
@@ -42,12 +43,19 @@ return {
 			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 			})
+			vim.lsp.config("qmlls", {
+				cmd = { "/usr/lib64/qt6/bin/qmlls" },
+				filetypes = { "qml", "qmljs" },
+				root_markers = { ".git" },
+				capabilities = capabilities,
+			})
 
 			vim.lsp.enable("html")
 			vim.lsp.enable("lua_ls")
 			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("jdtls")
 			vim.lsp.enable("pyright")
+			vim.lsp.enable("qmlls")
 		end,
 	},
 }
