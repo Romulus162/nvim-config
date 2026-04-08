@@ -11,18 +11,33 @@
 --This plugin does not support lazy-loading.
 --Make sure to specify the master branch, as the default branch will switch to main in the future.
 return {
-	"nvim-treesitter/nvim-treesitter",
-	branch = "master",
-	lazy = false,
-	build = ":TSUpdate",
-	config = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = { 'java', 'lua' }, --redundancy
-			auto_install = { enable = true },
-			-- apparently this is working, but I can't tell the difference, it very well could be because of my current theme
-			-- yeah its like 100% I can't tell highlight is working because theme, whatever.
-			highlight = { enable = true },
-			indent = { enable = true },
-		})
-	end,
+	{
+		"nvim-treesitter/nvim-treesitter",
+		branch = "master",
+		lazy = false,
+		build = ":TSUpdate",
+		config = function()
+			require("nvim-treesitter.configs").setup({
+				ensure_installed = { "java", "lua", "rust", "toml", "python" }, --redundancy
+				auto_install = true,
+				-- apparently this is working, but I can't tell the difference, it very well could be because of my current theme
+				-- yeah its like 100% I can't tell highlight is working because theme, whatever.
+				highlight = { enable = true },
+				indent = { enable = true },
+				incremental_selection = {
+					enable = true,
+					keymaps = {
+
+						init_selection = "<CR>",
+						node_incremental = "<CR>",
+						scope_incremental = false,
+						node_decremental = "<BS>",
+					},
+				},
+			})
+		end,
+	},
+	{
+		"nvim-treesitter/playground",
+	},
 }

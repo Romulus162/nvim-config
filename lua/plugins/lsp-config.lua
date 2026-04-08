@@ -12,9 +12,12 @@ return {
 				"lua_ls", -- Lua (great for editing Neovim config)
 				"html",
 				"cssls",
-				"rust_analyzer", -- Rust
+				--	"rust_analyzer", -- Rust
 				"jdtls", --Java (you have to be carefule, there is a java_language_server LSP also. This one is the official one)
 				"qmlls"
+			},
+			automatic_enable = {
+				exclude = { "rust_analyzer" },
 			},
 		},
 	},
@@ -28,9 +31,9 @@ return {
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
 			})
-			vim.lsp.config("rust_analyzer", {
-				capabilities = capabilities,
-			})
+			--	vim.lsp.config("rust_analyzer", {
+			--		capabilities = capabilities,
+			--	})
 			vim.lsp.config("jdtls", {
 				capabilities = capabilities,
 			})
@@ -52,7 +55,7 @@ return {
 
 			vim.lsp.enable("html")
 			vim.lsp.enable("lua_ls")
-			vim.lsp.enable("rust_analyzer")
+			--			vim.lsp.enable("rust_analyzer")
 			vim.lsp.enable("jdtls")
 			vim.lsp.enable("pyright")
 			vim.lsp.enable("qmlls")
