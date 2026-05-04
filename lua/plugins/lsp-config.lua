@@ -3,6 +3,17 @@ return {
 		"mason-org/mason.nvim",
 		opts = {},
 	},
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		config = function()
+			require("mason-tool-installer").setup({
+				ensure_installed = {
+					"shellcheck",
+					"shfmt",
+				},
+			})
+		end,
+	},
 	-- Mason-LSPConfig: tells Mason which servers to install and links them to lspconfig
 	{
 		"mason-org/mason-lspconfig.nvim",
@@ -10,11 +21,12 @@ return {
 			ensure_installed = {
 				--LSP's found at github.com/neovim/nvim-lspconfig/tree/master/lsp
 				"lua_ls", -- Lua (great for editing Neovim config)
+				"bashls",
 				"html",
 				"cssls",
 				--	"rust_analyzer", -- Rust
 				"jdtls", --Java (you have to be carefule, there is a java_language_server LSP also. This one is the official one)
-				"qmlls"
+				"qmlls",
 			},
 			automatic_enable = {
 				exclude = { "rust_analyzer" },
@@ -43,6 +55,9 @@ return {
 			vim.lsp.config("cssls", {
 				capabilities = capabilities,
 			})
+			vim.lsp.config("bashls", {
+				capabilities = capabilities,
+			})
 			vim.lsp.config("pyright", {
 				capabilities = capabilities,
 			})
@@ -59,6 +74,7 @@ return {
 			vim.lsp.enable("jdtls")
 			vim.lsp.enable("pyright")
 			vim.lsp.enable("qmlls")
+			vim.lsp.enable("bashls")
 		end,
 	},
 }

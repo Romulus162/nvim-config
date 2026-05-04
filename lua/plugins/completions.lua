@@ -74,6 +74,7 @@ return {
 					{ name = "nvim_lsp_signature_help" },
 					{ name = "luasnip" }, -- For luasnip users.
 					{ name = "path" },
+					{ name = "vim-dadbod-completion"},
 				}, {
 					{ name = "buffer" },
 				}),

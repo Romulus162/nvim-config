@@ -1,3 +1,4 @@
+--[[
 return {
 	"rebelot/kanagawa.nvim",
 	priority = 1000,
@@ -5,3 +6,6 @@ return {
 		vim.cmd.colorscheme("kanagawa-lotus")
 	end,
 }
+--]]
+
+return {}
