@@ -15,7 +15,7 @@ return {
 		vim.g.db_ui_use_nerd_fonts = 1
 
 		vim.g.dbs = {
-			redacted insert sever here
+			PJATK_oracle = "oracle://s32444:oracle12@db-oracle.pjwstk.edu.pl:1521/baza.pjwstk.edu.pl",
 		}
 	end,
 }

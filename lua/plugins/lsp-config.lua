@@ -10,6 +10,7 @@ return {
 				ensure_installed = {
 					"shellcheck",
 					"shfmt",
+					"pylint",
 				},
 			})
 		end,
@@ -27,6 +28,7 @@ return {
 				--	"rust_analyzer", -- Rust
 				"jdtls", --Java (you have to be carefule, there is a java_language_server LSP also. This one is the official one)
 				"qmlls",
+				"pyright",
 			},
 			automatic_enable = {
 				exclude = { "rust_analyzer" },
