@@ -1,0 +1,7 @@
+i need to add proper "ensure" for all my LSP's and inhertied tools from LSPs
+
+right now i have a big mess across all my machines where i manually download that shit
+and now they all have "unique" lsp configs... damn me for being lazy!!!
+
+LAZY VIM PLUGIN MANAGER OMG!!! HE SAID IT HE SAID THE WORD LAZY THIS IS A TOTAL
+MOMENT OF ALL MOMENTS!!!!
