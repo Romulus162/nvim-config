@@ -1,3 +1,4 @@
+--[[
 return {
 	"kungfusheep/mfd.nvim",
 	lazy = false,
@@ -10,3 +11,5 @@ return {
 		})
 	end,
 }
+--]]
+return {}

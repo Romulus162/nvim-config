@@ -10,6 +10,11 @@ return {
 
 		dapui.setup()
 
+		dap.adapters.python = {
+			type = "executable",
+			command = vim.fn.expand("~/.local/bin/debugpy-adapter"),
+		}
+
 		dap.adapters.codelldb = {
 			type = "server",
 			port = "${port}",
@@ -55,6 +60,19 @@ return {
 			},
 		}
 
+		dap.configurations.python = {
+			{
+				type = "python",
+				request = "launch",
+				name = "Launch file",
+
+				program = "${file}",
+				pythonPath = function()
+					return "python"
+				end,
+			},
+		}
+
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
 		end
@@ -74,6 +92,11 @@ return {
 		vim.keymap.set("n", "<Leader>dO", dap.step_out, {})
 		vim.keymap.set("n", "<Leader>db", dap.toggle_breakpoint, {})
 		vim.keymap.set("n", "<Leader>dr", dap.repl.open, {})
+
+		vim.keymap.set("n", "<leader>dw", function()
+			require("dapui").elements.watches.add(vim.fn.expand("<cword>"))
+		end)
+
 		vim.keymap.set("n", "<Leader>dq", function()
 			require("dap").terminate()
 			require("dapui").close()
