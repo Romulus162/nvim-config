@@ -12,7 +12,11 @@ return {
 
 		dap.adapters.python = {
 			type = "executable",
-			command = vim.fn.expand("~/.local/bin/debugpy-adapter"),
+			--mint machine
+			--command = vim.fn.expand("~/.local/bin/debugpy-adapter"),
+			--gentoo machine
+			command = vim.fn.expand("~/.venvs/debugpy/bin/python"),
+			args = { "-m", "debugpy.adapter" },
 		}
 
 		dap.adapters.codelldb = {
@@ -60,6 +64,7 @@ return {
 			},
 		}
 
+		--mint
 		dap.configurations.python = {
 			{
 				type = "python",
@@ -72,6 +77,23 @@ return {
 				end,
 			},
 		}
+		--gentoo
+		dap.configurations.python = {
+			{
+				type = "python",
+				request = "launch",
+				name = "Launch current file",
+				program = "${file}",
+				pythonPath = function()
+					local venv = vim.fn.getcwd() .. "/.venv/bin/python"
+					if vim.fn.executable(venv) == 1 then
+						return venv
+					end
+					return vim.fn.exepath("python3") or "python3"
+				end,
+			},
+		}
+
 
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
