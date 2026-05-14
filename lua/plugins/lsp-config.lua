@@ -40,10 +40,23 @@ return {
 	{
 		"neovim/nvim-lspconfig",
 		config = function()
+			vim.filetype.add({
+				extension = {
+					v = "coq",
+				},
+			})
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			vim.lsp.config("lua_ls", {
 				capabilities = capabilities,
+			})
+
+			vim.lsp.config("coq_lsp", {
+				cmd = {
+					"coq-lsp",
+				},
+				filetypes = { "coq" },
+				root_markers = { "_CoqProject", ".git" },
 			})
 			--	vim.lsp.config("rust_analyzer", {
 			--		capabilities = capabilities,
@@ -77,6 +90,7 @@ return {
 			vim.lsp.enable("pyright")
 			vim.lsp.enable("qmlls")
 			vim.lsp.enable("bashls")
+			vim.lsp.enable("coq_lsp")
 		end,
 	},
 }
